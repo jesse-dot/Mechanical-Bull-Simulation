@@ -225,11 +225,11 @@ class MechanicalBullSimulator:
     def _reset_simulation(self):
         """Reset the simulation to initial state."""
         # Clear the space
-        for constraint in self.space.constraints[:]:
+        for constraint in list(self.space.constraints):
             self.space.remove(constraint)
-        for body in self.space.bodies[:]:
+        for body in list(self.space.bodies):
             self.space.remove(body)
-        for shape in self.space.shapes[:]:
+        for shape in list(self.space.shapes):
             self.space.remove(shape)
         
         # Reset state
